@@ -5,19 +5,18 @@ class SignUpButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 160),
-      child: TextButton(
-        onPressed: () {},
-        style: TextButton.styleFrom(
-          foregroundColor: Colors.white,
-          textStyle: TextStyle(fontSize: 16, letterSpacing: .5),
-        ),
-        child: Text(
-          'Não possui uma conta? Cadastre-se',
-          textAlign: TextAlign.center,
-          overflow: TextOverflow.ellipsis,
-        ),
+    return TextButton(
+      onPressed: () {},
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.only(top: 160),
+        foregroundColor: Colors.white,
+        textStyle: TextStyle(
+            fontSize: 16, letterSpacing: .5, fontWeight: FontWeight.w300),
+      ),
+      child: Text(
+        'Não possui uma conta? Cadastre-se',
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }
