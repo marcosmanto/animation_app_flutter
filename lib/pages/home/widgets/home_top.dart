@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'category_view.dart';
+
 class HomeTop extends StatelessWidget {
   final Animation<double> containerGrow;
   const HomeTop({super.key, required this.containerGrow});
@@ -42,12 +44,22 @@ class HomeTop extends StatelessWidget {
             child: Container(
               width: containerGrow.value * 35,
               height: containerGrow.value * 35,
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Theme.of(context).colorScheme.secondary,
               ),
+              margin: EdgeInsets.only(left: 80),
+              child: Text(
+                '2',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: containerGrow.value * 15,
+                    fontWeight: FontWeight.w400),
+              ),
             ),
-          )
+          ),
+          CategoryView()
         ],
       )),
     );
