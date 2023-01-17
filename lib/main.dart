@@ -1,4 +1,3 @@
-import 'package:animation_app_flutter/pages/home/home_screen.dart';
 import 'package:animation_app_flutter/pages/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,12 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Animations',
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch().copyWith(
-              primary: Colors.white,
-              secondary: Color.fromRGBO(247, 64, 106, 1.0))),
-      home: HomeScreen(), //LoginScreen()
-    );
+        title: 'Animations',
+        theme: ThemeData(
+            colorScheme: ColorScheme.fromSwatch().copyWith(
+                primary: Colors.white,
+                secondary: Color.fromRGBO(247, 64, 106, 1.0))),
+        home: LoginScreen());
   }
 }
