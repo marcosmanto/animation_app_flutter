@@ -4,6 +4,8 @@ import 'widgets/form_container.dart';
 import 'widgets/sign_up_button.dart';
 import 'widgets/stagger_animation.dart';
 
+import 'package:flutter/scheduler.dart' show timeDilation;
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -32,6 +34,8 @@ class _LoginScreenState extends State<LoginScreen>
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 4;
+
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(

@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Animations',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+              primary: Colors.white,
+              secondary: Color.fromRGBO(247, 64, 106, 1.0))),
       home: LoginScreen(),
     );
   }
