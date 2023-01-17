@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 class StaggerAnimation extends StatelessWidget {
   final AnimationController controller;
   final Animation<double> buttonSqueeze;
+  final Animation<double> buttonZoomOut;
 
   StaggerAnimation({super.key, required this.controller})
       : buttonSqueeze = Tween<double>(begin: 320, end: 60).animate(
           CurvedAnimation(
             parent: controller,
-            curve: Interval(0, .150, curve: Curves.elasticOut),
+            curve: Interval(0, .150, curve: Curves.easeOutExpo),
+          ),
+        ),
+        buttonZoomOut = Tween<double>(begin: 60, end: 1000).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(0.5, 1, curve: Curves.easeOutExpo),
           ),
         );
 
@@ -26,16 +33,27 @@ class StaggerAnimation extends StatelessWidget {
         onTap: () {
           controller.forward();
         },
-        child: Container(
-          width: buttonSqueeze.value.clamp(0, double.infinity),
-          height: 60,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Color.fromRGBO(247, 64, 106, 1.0),
-            borderRadius: BorderRadius.all(Radius.circular(30)),
-          ),
-          child: _buildInside(context),
-        ),
+        child: buttonZoomOut.value <= 60
+            ? Container(
+                width: buttonSqueeze.value.clamp(0, double.infinity),
+                height: 60,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(247, 64, 106, 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                ),
+                child: _buildInside(context),
+              )
+            : Container(
+                width: buttonZoomOut.value,
+                height: buttonZoomOut.value,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(247, 64, 106, 1.0),
+                  shape: buttonZoomOut.value < 500
+                      ? BoxShape.circle
+                      : BoxShape.rectangle,
+                ),
+              ),
       ),
     );
   }
