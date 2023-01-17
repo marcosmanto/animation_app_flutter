@@ -1,3 +1,4 @@
+import 'package:animation_app_flutter/pages/home/home_screen.dart';
 import 'package:animation_app_flutter/pages/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch().copyWith(
               primary: Colors.white,
               secondary: Color.fromRGBO(247, 64, 106, 1.0))),
-      home: LoginScreen(),
+      home: HomeScreen(), //LoginScreen()
     );
   }
 }

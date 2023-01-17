@@ -21,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen>
         duration: Duration(
           milliseconds: 2000,
         ));
+
+    _controller.forward();
   }
 
   @override
